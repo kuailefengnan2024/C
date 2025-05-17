@@ -1,37 +1,37 @@
 // pointer_oop.cpp
-// ��ѧĿ�꣺����ָ�롢�ڴ��������������̣�OOP��
-// ���ó���������C++�ڴ����������ƣ�Ϊͼ�����е����ض���ģ
-// ����Ҫ����basic_syntax.cpp��ͬ��ȷ��������֧��C++11����߰汾
+// 学习目标：掌握指针、内存管理和面向对象编程（OOP）
+// 适用场景：掌握C++内存管理和控制，为图像处理中的对象定义建模
+// 运行要求：与basic_syntax.cpp相同，确保编译器支持C++11或更高版本
 
-#include <iostream> // �������
+#include <iostream> // 输入输出
 using namespace std;
 
-// �ඨ�壺Pixel��ʾͼ���е�һ�����ص㣨OOPʾ����
+// 类定义：Pixel表示图像中的一个像素点（OOP示例）
 class Pixel {
-private: // ��װ��˽�г�Աֻ��ͨ�����з�������
-    int red;   // RGB��ɫֵ
+private: // 封装：私有成员只能通过公有方法访问
+    int red;   // RGB颜色值
     int green;
     int blue;
 
-public: // ���нӿ�
-    // ���캯������ʼ������
-    // ��ѧ�����캯���ڶ��󴴽�ʱ�Զ�����
+public: // 公有接口
+    // 构造函数：初始化对象
+    // 学习点：构造函数在对象创建时自动调用
     Pixel(int r = 0, int g = 0, int b = 0) : red(r), green(g), blue(b) {
-        cout << "�������أ�R=" << r << ", G=" << g << ", B=" << b << endl;
+        cout << "像素创建：R=" << r << ", G=" << g << ", B=" << b << endl;
     }
 
-    // ����������������Դ
-    // ��ѧ�����������ڶ�������ʱ�Զ�����
+    // 析构函数：释放资源
+    // 学习点：析构函数在对象销毁时自动调用
     ~Pixel() {
-        cout << "�������أ�R=" << red << ", G=" << green << ", B=" << blue << endl;
+        cout << "像素销毁：R=" << red << ", G=" << green << ", B=" << blue << endl;
     }
 
-    // ��Ա��������ȡ����
-    double getBrightness() const { // const��ʾ���޸Ķ���
+    // 成员函数：获取亮度
+    double getBrightness() const { // const表示不修改对象
         return 0.299 * red + 0.587 * green + 0.114 * blue;
     }
 
-    // ��Ա������������ɫ����������ʹ�����ã�
+    // 成员函数：设置颜色（演示参数引用传递）
     void setColor(int& r, int& g, int& b) {
         red = r;
         green = g;
@@ -39,36 +39,36 @@ public: // ���нӿ�
     }
 };
 
-// ��������̬�������ز�����ָ��
+// 函数：动态创建并返回像素指针
 Pixel* createPixel(int r, int g, int b) {
-    // ��ѧ��new������ڴ棬����ָ��
+    // 学习点：new分配内存，返回指针
     return new Pixel(r, g, b);
 }
 
 int main() {
-    // 1. ָ�����
-    // ��ѧ��ָ��洢�ڴ��ַ��&ȡ��ַ��*������
+    // 1. 指针基础
+    // 学习点：指针存储内存地址，&取地址，*解引用
     int value = 100;
-    int* ptr = &value; // ptrָ��value�ĵ�ַ
-    cout << "ֵ��" << value << ", ��ַ��" << ptr << ", ָ������ã�" << *ptr << endl;
+    int* ptr = &value; // ptr指向value的地址
+    cout << "值：" << value << ", 地址：" << ptr << ", 指针解引用：" << *ptr << endl;
 
-    // 2. ��̬�ڴ����
-    // ��ѧ��new�����ڴ棬delete�ͷ��ڴ棬�����ڴ�й©
+    // 2. 动态内存分配
+    // 学习点：new分配内存，delete释放内存，避免内存泄漏
     Pixel* pixelPtr = createPixel(255, 128, 64);
-    cout << "��̬�������ȣ�" << pixelPtr->getBrightness() << endl;
-    delete pixelPtr; // �ͷ��ڴ�
-    pixelPtr = nullptr; // ����Ұָ��
+    cout << "动态对象亮度：" << pixelPtr->getBrightness() << endl;
+    delete pixelPtr; // 释放内存
+    pixelPtr = nullptr; // 避免野指针
 
-    // 3. ���������
-    // ��ѧ������Pixel����չʾ��װ�ͷ�������
-    Pixel pixel(200, 150, 100); // ջ�Ϸ���
-    cout << "ջ���������ȣ�" << pixel.getBrightness() << endl;
+    // 3. 对象与类
+    // 学习点：创建Pixel对象展示封装和方法调用
+    Pixel pixel(200, 150, 100); // 栈上分配
+    cout << "栈对象亮度：" << pixel.getBrightness() << endl;
 
-    // 4. ������ָ����
-    // ��ѧ�������Ǳ�������ָ�����
+    // 4. 引用与指针传参
+    // 学习点：演示引用传递和指针参数
     int r = 50, g = 75, b = 25;
     pixel.setColor(r, g, b);
-    cout << "���º��������ȣ�" << pixel.getBrightness() << endl;
+    cout << "更新后亮度：" << pixel.getBrightness() << endl;
 
     return 0;
 }

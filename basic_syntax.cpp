@@ -1,53 +1,53 @@
 // basic_syntax.cpp
-// ½ÌÑ§Ä¿±ê£ºÕ¹Ê¾C++»ù±¾Óï·¨£¬°üÀ¨±äÁ¿¡¢ÊäÈëÊä³ö¡¢¿ØÖÆ½á¹¹ºÍº¯Êý
-// ÊÊÓÃ³¡¾°£º³õÑ§ÕßÑ§Ï°C++»ù´¡£¬Àí½â³ÌÐò½á¹¹ºÍ»ù±¾Âß¼­
-// »·¾³ÒªÇó£ºÅäÖÃºÃC++±àÒëÆ÷£¨Èçg++£©£¬ÍÆ¼öÊ¹ÓÃVS Code»òVisual Studio
+// å­¦ä¹ ç›®æ ‡ï¼šå±•ç¤ºC++åŸºæœ¬è¯­æ³•ï¼ŒåŒ…æ‹¬å˜é‡ã€è¾“å…¥è¾“å‡ºã€æŽ§åˆ¶ç»“æž„å’Œå‡½æ•°
+// é€‚ç”¨åœºæ™¯ï¼šå¸®åŠ©å­¦ä¹ C++ç¼–ç¨‹åŸºç¡€ç»“æž„å’ŒåŸºæœ¬é€»è¾‘
+// è¿è¡Œè¦æ±‚ï¼šéœ€é…ç½®å¥½C++çŽ¯å¢ƒï¼Œç”¨g++ç¼–è¯‘ï¼ŒæŽ¨èä½¿ç”¨VS Codeæˆ–Visual Studio
 
-#include <iostream> // ±ê×¼ÊäÈëÊä³ö¿â
-using namespace std; // Ê¹ÓÃ±ê×¼ÃüÃû¿Õ¼ä£¬±ÜÃâÃ¿´ÎÐ´std::
+#include <iostream> // æ ‡å‡†è¾“å…¥è¾“å‡ºåº“
+using namespace std; // ä½¿ç”¨æ ‡å‡†å‘½åç©ºé—´ï¼Œé¿å…æ¯æ¬¡å†™std::
 
-// º¯ÊýÉùÃ÷£º¼ÆËãÏñËØÖµµÄÆ½¾ùÁÁ¶È£¨Ä£ÄâAIGCÍ¼Ïñ´¦ÀíÖÐµÄÁÁ¶È¼ÆËã£©
+// å‡½æ•°å£°æ˜Žï¼šè®¡ç®—åƒç´ å€¼çš„å¹³å‡äº®åº¦ï¼ˆæ¨¡æ‹ŸAIGCå›¾åƒå¤„ç†ä¸­çš„äº®åº¦è®¡ç®—ï¼‰
 double calculateBrightness(int r, int g, int b);
 
-// Ö÷º¯Êý£º³ÌÐòÈë¿Ú
+// ä¸»å‡½æ•°ï¼šç¨‹åºå…¥å£
 int main() {
-    // 1. ±äÁ¿ÓëÊý¾ÝÀàÐÍ
-    // ½ÌÑ§£º±äÁ¿ÊÇ´æ´¢Êý¾ÝµÄÈÝÆ÷£¬C++ÊÇÇ¿ÀàÐÍÓïÑÔ£¬±ØÐëÉùÃ÷ÀàÐÍ
-    int red = 255;    // ºìÉ«Í¨µÀ£¨0-255£¬Ä£ÄâÍ¼ÏñÏñËØ£©
-    int green = 128;  // ÂÌÉ«Í¨µÀ
-    int blue = 64;    // À¶É«Í¨µÀ
-    double brightness; // ´æ´¢ÁÁ¶ÈÖµ£¨¸¡µãÊý£©
+    // 1. å˜é‡å®šä¹‰ä¸Žåˆå§‹åŒ–
+    // å­¦ä¹ ç‚¹ï¼šå˜é‡æ˜¯å­˜å‚¨æ•°æ®çš„å®¹å™¨ï¼ŒC++çš„å¼ºç±»åž‹ç‰¹æ€§ï¼Œæ•´åž‹å’Œæµ®ç‚¹åž‹
+    int red = 255;    // çº¢è‰²é€šé“ï¼ˆ0-255ï¼Œæ¨¡æ‹Ÿå›¾åƒåƒç´ ï¼‰
+    int green = 128;  // ç»¿è‰²é€šé“
+    int blue = 64;    // è“è‰²é€šé“
+    double brightness; // å­˜å‚¨äº®åº¦å€¼çš„æµ®ç‚¹æ•°
 
-    // 2. »ù±¾ÊäÈëÊä³ö
-    // ½ÌÑ§£ºcinÓÃÓÚÊäÈë£¬coutÓÃÓÚÊä³ö£¬<<ºÍ>>ÊÇÁ÷²Ù×÷·û
-    cout << "ÇëÊäÈëRGBÏñËØÖµ (ºì ÂÌ À¶£¬·¶Î§0-255)£º";
+    // 2. è¾“å…¥è¾“å‡ºæ“ä½œ
+    // å­¦ä¹ ç‚¹ï¼šcinå¤„ç†è¾“å…¥ï¼Œcoutå¤„ç†è¾“å‡ºï¼Œ<<å’Œ>>æ“ä½œç¬¦é‡è½½
+    cout << "è¯·è¾“å…¥RGBä¸‰ä¸ªå€¼ (çº¢ ç»¿ è“ï¼ŒèŒƒå›´0-255)ï¼š";
     cin >> red >> green >> blue;
 
-    // 3. ¿ØÖÆ½á¹¹ - Ìõ¼þÓï¾ä
-    // ½ÌÑ§£ºif-elseÓÃÓÚÅÐ¶ÏÊäÈëÊÇ·ñºÏ·¨£¨RGBÖµÐèÔÚ0-255Ö®¼ä£©
+    // 3. æŽ§åˆ¶ç»“æž„ - æ¡ä»¶è¯­å¥
+    // å­¦ä¹ ç‚¹ï¼šif-elseè¯­å¥åˆ¤æ–­è¾“å…¥æ˜¯å¦åˆæ³•ï¼ˆRGBå€¼å¿…é¡»0-255ä¹‹é—´ï¼‰
     if (red < 0 || red > 255 || green < 0 || green > 255 || blue < 0 || blue > 255) {
-        cout << "´íÎó£ºRGBÖµ±ØÐëÔÚ0-255Ö®¼ä£¡" << endl;
-        return 1; // ·µ»Ø1±íÊ¾³ÌÐòÒì³£ÍË³ö
+        cout << "é”™è¯¯ï¼šRGBå€¼å¿…é¡»åœ¨0-255ä¹‹é—´ï¼" << endl;
+        return 1; // è¿”å›ž1è¡¨ç¤ºç¨‹åºå¼‚å¸¸é€€å‡º
     }
 
-    // 4. º¯Êýµ÷ÓÃ
-    // ½ÌÑ§£ºº¯Êý·â×°¿ÉÖØÓÃ´úÂë£¬calculateBrightness¼ÆËãÁÁ¶È
+    // 4. å‡½æ•°è°ƒç”¨
+    // å­¦ä¹ ç‚¹ï¼šå‡½æ•°å°è£…å¤ç”¨ä»£ç ï¼ŒcalculateBrightnesså‡½æ•°è°ƒç”¨
     brightness = calculateBrightness(red, green, blue);
 
-    // 5. ¿ØÖÆ½á¹¹ - Ñ­»·
-    // ½ÌÑ§£ºforÑ­»·Ä£Äâ¶à´ÎÊä³ö£¬Õ¹Ê¾Ñ­»·µÄÊ¹ÓÃ
-    cout << "ÁÁ¶ÈÖµ£º" << brightness << endl;
+    // 5. æŽ§åˆ¶ç»“æž„ - å¾ªçŽ¯
+    // å­¦ä¹ ç‚¹ï¼šforå¾ªçŽ¯æ¨¡æ‹Ÿæ•°æ®è¾“å‡ºï¼Œå±•ç¤ºå¾ªçŽ¯çš„ä½¿ç”¨
+    cout << "äº®åº¦å€¼ï¼š" << brightness << endl;
     for (int i = 0; i < 3; i++) {
-        cout << "µÚ" << i + 1 << "´ÎÈ·ÈÏÁÁ¶È£º" << brightness << endl;
+        cout << "ç¬¬" << i + 1 << "æ¬¡ç¡®è®¤äº®åº¦ï¼š" << brightness << endl;
     }
 
-    return 0; // ³ÌÐòÕý³£ÍË³ö
+    return 0; // ç¨‹åºæ­£å¸¸é€€å‡º
 }
 
-// º¯Êý¶¨Òå£º¼ÆËãRGBÏñËØµÄÁÁ¶È£¨»ùÓÚ¼ÓÈ¨Æ½¾ù£¬Ä£ÄâÍ¼Ïñ´¦Àí£©
+// å‡½æ•°å®šä¹‰ï¼šè®¡ç®—RGBåƒç´ çš„äº®åº¦ï¼ŒåŸºäºŽåŠ æƒå¹³å‡ï¼Œæ¨¡æ‹Ÿå›¾åƒå¤„ç†ä¸­
 double calculateBrightness(int r, int g, int b) {
-    // ½ÌÑ§£ºº¯Êý½ÓÊÕ²ÎÊý£¬·µ»Ø¼ÆËã½á¹û
-    // ÁÁ¶È¹«Ê½£ºY = 0.299R + 0.587G + 0.114B£¨·ûºÏÈËÑÛ¸ÐÖª£©
+    // å­¦ä¹ ç‚¹ï¼šå‡½æ•°å®žçŽ°ï¼Œå‚æ•°ä¼ é€’ä¸Žè¿”å›žå€¼
+    // äº®åº¦å…¬å¼ï¼šY = 0.299R + 0.587G + 0.114Bï¼ˆå¸¸è§è§†è§‰æ„ŸçŸ¥å…¬å¼ï¼‰
     double result = 0.299 * r + 0.587 * g + 0.114 * b;
     return result;
 }
