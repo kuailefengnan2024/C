@@ -1,0 +1,53 @@
+// basic_syntax.cpp
+// 教学目标：展示C++基本语法，包括变量、输入输出、控制结构和函数
+// 适用场景：初学者学习C++基础，理解程序结构和基本逻辑
+// 环境要求：配置好C++编译器（如g++），推荐使用VS Code或Visual Studio
+
+#include <iostream> // 标准输入输出库
+using namespace std; // 使用标准命名空间，避免每次写std::
+
+// 函数声明：计算像素值的平均亮度（模拟AIGC图像处理中的亮度计算）
+double calculateBrightness(int r, int g, int b);
+
+// 主函数：程序入口
+int main() {
+    // 1. 变量与数据类型
+    // 教学：变量是存储数据的容器，C++是强类型语言，必须声明类型
+    int red = 255;    // 红色通道（0-255，模拟图像像素）
+    int green = 128;  // 绿色通道
+    int blue = 64;    // 蓝色通道
+    double brightness; // 存储亮度值（浮点数）
+
+    // 2. 基本输入输出
+    // 教学：cin用于输入，cout用于输出，<<和>>是流操作符
+    cout << "请输入RGB像素值 (红 绿 蓝，范围0-255)：";
+    cin >> red >> green >> blue;
+
+    // 3. 控制结构 - 条件语句
+    // 教学：if-else用于判断输入是否合法（RGB值需在0-255之间）
+    if (red < 0 || red > 255 || green < 0 || green > 255 || blue < 0 || blue > 255) {
+        cout << "错误：RGB值必须在0-255之间！" << endl;
+        return 1; // 返回1表示程序异常退出
+    }
+
+    // 4. 函数调用
+    // 教学：函数封装可重用代码，calculateBrightness计算亮度
+    brightness = calculateBrightness(red, green, blue);
+
+    // 5. 控制结构 - 循环
+    // 教学：for循环模拟多次输出，展示循环的使用
+    cout << "亮度值：" << brightness << endl;
+    for (int i = 0; i < 3; i++) {
+        cout << "第" << i + 1 << "次确认亮度：" << brightness << endl;
+    }
+
+    return 0; // 程序正常退出
+}
+
+// 函数定义：计算RGB像素的亮度（基于加权平均，模拟图像处理）
+double calculateBrightness(int r, int g, int b) {
+    // 教学：函数接收参数，返回计算结果
+    // 亮度公式：Y = 0.299R + 0.587G + 0.114B（符合人眼感知）
+    double result = 0.299 * r + 0.587 * g + 0.114 * b;
+    return result;
+}

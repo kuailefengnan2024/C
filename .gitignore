@@ -1,0 +1,13 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ±àÒëÊä³ö
+bin/
+obj/
+x64/
+Debug/
+Release/
